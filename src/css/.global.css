@@ -7,9 +7,10 @@
 	text-align: center;
 }
 
-.global_center {
+.global_center_button {
 	position: absolute;
-    right: 32%;
+	top: 40%;
+    right: 37.5%;
 }
 
 .global_blue_button {
