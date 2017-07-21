@@ -1,0 +1,19 @@
+{
+  "name": "projector",
+  "version": "1.0.0",
+  "description": "Creating and managing project ideas easier and faster",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gproduct/Projector.git"
+  },
+  "author": "Silard G",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gproduct/Projector/issues"
+  },
+  "homepage": "https://github.com/gproduct/Projector#readme"
+}
