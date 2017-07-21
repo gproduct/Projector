@@ -1,1 +1,18 @@
 @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
+
+/*
+*	div and button for centering 
+*/
+.global_center_wrapper {
+	text-align: center;
+}
+
+.global_center_button {
+	position: absolute;
+    top: 42%;
+    right: 38%;
+}
+
+.global_blue_button {
+	background-color: #4183D7 !important;
+}

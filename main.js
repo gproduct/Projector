@@ -12,7 +12,7 @@ app.once('ready', () => {
 
 	});
 
-	win.toggleDevTools();
+	//win.toggleDevTools();
 	win.loadURL(`file://${__dirname}/src/html/index.html`);
 });
 
