@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/gproduct/Projector/issues"
   },
-  "homepage": "https://github.com/gproduct/Projector#readme"
+  "homepage": "https://github.com/gproduct/Projector#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
 }
