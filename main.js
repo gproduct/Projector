@@ -46,7 +46,7 @@ app.on('browser-window-created', (e, window) => {
 exports.init_db = (path) => {
 	db = new JSONdb(path);
 	json_path.path = path;
-	console.log("Setting json path to: " + json_path.path);
+	//console.log("Setting json path to: " + json_path.path);
 }
 /*
  *	Function: 	 exports.update_db = (key, value)
