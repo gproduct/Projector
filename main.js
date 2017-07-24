@@ -4,10 +4,10 @@ const 	{app, BrowserWindow} 	= electron;										// getting elements from elect
 // https://www.npmjs.com/package/simple-json-db
 const JSONdb = require('simple-json-db');										// json database for making this whole project portable
 
-var path_for_data = "/home/silard_g/development/Projector/examples/test.json"; 	// will be changable by user
-const db = new JSONdb(path_for_data);
+global.json_path = {path : null}												// making the path accessable later
 
 let win;																		// first main window
+var db;																			// make it global (locally)
 
 /*
  *	Function: 	 app.once('ready')
@@ -32,8 +32,18 @@ app.on('browser-window-created', (e, window) => {
 	window.setMenu(null);
 });
 
+
 /***************************************************************************/
 
+/*
+ *	Function: 	 exports.init_db
+ * 	Description: Inits the database, based on receiving the path to the json file
+ */
+exports.init_db = (path) => {
+	db = new JSONdb(path);
+	json_path.path = path;
+	console.log("Setting json path to: " + json_path.path);
+}
 /*
  *	Function: 	 exports.update_db = (key, value)
  * 	Description: Function that lets other files update the database
