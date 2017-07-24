@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/gproduct/Projector#readme",
   "dependencies": {
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "simple-json-db": "^1.2.1"
   }
 }
