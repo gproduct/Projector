@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Introduction</title>
+	<title>Setup</title>
 	<link rel="stylesheet" type="text/css" href="../css/.global.css">
 </head>
-<body style="background-color: #27ae60">
-	<div class="button_centered">
+<body style="background-color: #2ecc71">
+	<div id="button_centered" class="centered">
 		<button type="button" id="choose_json" class="btn btn-primary btn-lg">Choose your project .json file</button>
 	</div>
-
+	<div id="setup" class="centered" style="display: none;top: 25%;">
+		<form style="width: 300px; margin: 0 auto;">
+		  <div class="form-group">
+		    <label for="project_title">Project title:</label>
+		    <input type="text" class="form-control" id="project_title">
+		  </div>
+		  <div class="form-group">
+		    <label for="project_description">Project description:</label>
+		    <input type="text" class="form-control" id="project_description">
+		  </div>
+		  <div class="form-group">
+		    <label for="project_github">Project github link:</label>
+		    <input type="text" class="form-control" id="project_github">
+		  </div>
+		  <button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
 	<script>require('../js/index.js');</script>
 </body>
 </html>

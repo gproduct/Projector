@@ -1,7 +1,7 @@
 const remote 	= require('electron').remote;			// accessing remote library
 const main		= remote.require('./main.js');			// accessing stuff from main.js
-var dialog = remote.require('electron').dialog;			// accessing the users path
-var $ = require('jquery');
+var dialog 		= remote.require('electron').dialog;	// accessing the users path
+var $ 			= require('jquery');					// basic jquery
 
 var path_returned;
 
@@ -33,23 +33,22 @@ function check_file() {
 	var setup_points = remote.getGlobal('json_path').setup_points;
 
 	for(var i = 0; i < setup_points.length; i++) {
-		console.log("Looking at: ", setup_points[i]);
-
-		if(main.has_db(setup_points[i])) {
-			// it contains the item, write it into the 
-			console.log("The file already has " + setup_points[i]);
+		if(main.has_db(setup_points[i])) { 
+			console.log("The file already has: " + setup_points[i]);
+			document.getElementById(setup_points[i]).value = main.read_db(setup_points[i]);
 		} else {
+			console.log("The file doesnt contain:" + setup_points[i]);
 			// it doesnt 
 		}
 	}
-	
-
 }
 
 $("#choose_json").click(function() {
 	$("#choose_json").text("Loading...");
 	set_json_path();
 	//load new interface with setup
+	$("#button_centered").slideUp(500);
+	$("#setup").slideDown(1500);
 	check_file();
 });
 

@@ -1,6 +1,6 @@
 @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 
-.button_centered {
+.centered {
 	position: absolute;
   top: 43%;
   text-align: center;
