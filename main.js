@@ -4,7 +4,11 @@ const 	{app, BrowserWindow} 	= electron;										// getting elements from elect
 // https://www.npmjs.com/package/simple-json-db
 const JSONdb = require('simple-json-db');										// json database for making this whole project portable
 
-global.json_path = {path : null}												// making the path accessable later
+
+global.json_path = {
+	path : null,
+	setup_points : ['project_title', 'project_description', 'project_github']
+}												// making the path accessable later
 
 let win;																		// first main window
 var db;																			// make it global (locally)
@@ -55,9 +59,17 @@ exports.update_db = (key, value) => {
 }
 
 /*
- *	Function: 	 exports.update_db = (key, value)
+ *	Function: 	 exports.read_db = (key)
  * 	Description: Function that lets other files read the database
  */
 exports.read_db = (key) => {
 	return db.get(key);
+}
+
+/*
+ *	Function: 	 exports.has_db = (key)
+ * 	Description: checks if the item excists
+ */
+exports.has_db = (key) => {
+	return db.has(key);
 }
