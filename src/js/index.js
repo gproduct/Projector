@@ -84,8 +84,6 @@ $("#submit_setup").click(function() {
 		}
 	}
 
-	alert("Data recorded successfully");
-
-	// redirect to other page
-	main.load_file(`file://${__dirname}/src/html/dashboard.html`);
+	// redirect to dashboard
+	main.load_dashboard();
 });
