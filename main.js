@@ -36,6 +36,9 @@ app.on('browser-window-created', (e, window) => {
 	window.setMenu(null);										// fuck the menu
 });
 
+exports.load_file = (file_path) => {
+	win.loadURL(file_path);
+}
 
 /***************************************************************************/
 

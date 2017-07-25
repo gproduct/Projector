@@ -57,8 +57,9 @@ $("#choose_json").click(function() {
 });
 
 $("#submit_setup").click(function() {
-	// should add checking if all entered and shit
+
 	var form_data = {};
+
 	for(var i = 0; i < setup_points.length; i++) {
 
 		//getting the data
@@ -72,6 +73,7 @@ $("#submit_setup").click(function() {
 	}
 	//console.log(form_data);
 	for(var i = 0; i< setup_points.length; i++) {
+
 		// updating the json file
 		main.update_db(setup_points[i], form_data[i]);
 
@@ -83,5 +85,7 @@ $("#submit_setup").click(function() {
 	}
 
 	alert("Data recorded successfully");
-	//redirect to other page
+
+	// redirect to other page
+	main.load_file(`file://${__dirname}/src/html/dashboard.html`);
 });
