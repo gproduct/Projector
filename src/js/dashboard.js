@@ -7,6 +7,10 @@ var setup_points;
 var num_of_topics;
 var topic_current_info = [[],[]];
 
+/*
+ *	Function: 	 get_basic_data()
+ * 	Description: gets the basic information about the project from the json file
+ */
 function get_basic_data() {
 
 	setup_points = remote.getGlobal('json_path').setup_points;		// gets setup points
@@ -20,6 +24,10 @@ function get_basic_data() {
 	}	
 }
 
+/*
+ *	Function: 	 check_for_topics()
+ * 	Description: check how many topics are there, if not create a null one
+ */
 function check_for_topics() {
 
 
@@ -34,9 +42,13 @@ function check_for_topics() {
 	}
 }
 
+/*
+ *	Function: 	 topic_nav_new(name, id, callback_function)
+ * 	Description: check how many topics are there, if not create a null one
+ */
 function topic_nav_new(name, id, callback_function) {
 
-	if(document.getElementById(id) == null) {
+	if(document.getElementById(name) == null) {
 		var ul = document.getElementById("topic_nav");
 		var li = document.createElement("li");
 		var a  = document.createElement("a");
@@ -53,6 +65,10 @@ function topic_nav_new(name, id, callback_function) {
 	}
 }
 
+/*
+ *	Function: 	 update_topic_nav()
+ * 	Description: goes through the num of topics and information and sets them up 
+ */
 function update_topic_nav() {
 
 	for(var i = 0;i<num_of_topics;i++) {
@@ -64,16 +80,23 @@ function update_topic_nav() {
 	topic_nav_new("Create a topic", "topic_new", topic_new);
 }
 
+/*
+ *	Function: 	 set_iframe_url(url)
+ * 	Description: sets the iframes url
+ */
 function set_iframe_url(url) {
 
 	document.getElementById('frame').src = url;
 
 }
+
+/*
+ *	Function: 	 topic_new()
+ * 	Description: callback for topic_new, it sets the iframe to topic new
+ */
 function topic_new() {
 	set_iframe_url("topic_new.html");
 }
-
-
 
 get_basic_data();
 check_for_topics();
