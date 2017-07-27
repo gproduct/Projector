@@ -5,6 +5,8 @@ var $ 			= require('jquery');					// basic jquery
 var basic_data  = {};									// title, description, github link
 var setup_points;
 var num_of_topics;
+var topic_current_info = [[],[]];
+
 function get_basic_data() {
 
 	setup_points = remote.getGlobal('json_path').setup_points;		// gets setup points
@@ -19,6 +21,8 @@ function get_basic_data() {
 }
 
 function check_for_topics() {
+
+
 	if(main.has_db('num_of_topics')) {
 		// read how many topics/ideas there are and generate navigation
 		num_of_topics = main.read_db('num_of_topics');
@@ -32,23 +36,21 @@ function check_for_topics() {
 
 function topic_nav_new(name, id, callback_function) {
 
-	// create button
-	var ul = document.getElementById("topic_nav");
-	var li = document.createElement("li");
-	var a  = document.createElement("a");
-	li.setAttribute("id", id); 	
-	a.setAttribute("href","#");
-	a.appendChild(document.createTextNode(name));
-	li.appendChild(a);
-	ul.appendChild(li);
-	$("#" + id).click(function() {
-		callback_function();
-	});
-
-}
-
-function test() {
-	alert("swag");
+	if(document.getElementById(id) == null) {
+		var ul = document.getElementById("topic_nav");
+		var li = document.createElement("li");
+		var a  = document.createElement("a");
+		li.setAttribute("id", id); 	
+		a.setAttribute("href","#");
+		a.appendChild(document.createTextNode(name));
+		li.appendChild(a);
+		ul.appendChild(li);
+		if(callback_function != null) {
+			$("#" + id).click(function() {
+				callback_function();
+			});
+		}
+	}
 }
 
 function update_topic_nav() {
@@ -59,13 +61,17 @@ function update_topic_nav() {
 	}
 
 	// for last one create "create new"
-	topic_nav_new("Create a topic", "topic_new", test);
-
-
+	topic_nav_new("Create a topic", "topic_new", topic_new);
 }
 
+function set_iframe_url(url) {
 
+	document.getElementById('frame').src = url;
 
+}
+function topic_new() {
+	set_iframe_url("topic_new.html");
+}
 
 
 
