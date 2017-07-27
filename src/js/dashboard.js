@@ -30,8 +30,25 @@ function check_for_topics() {
 	}
 }
 
+function topic_nav_new(name, id, callback_function) {
+
+	// create button
+	var ul = document.getElementById("topic_nav");
+	var li = document.createElement("li");
+	var a  = document.createElement("a");
+	li.setAttribute("id", id); 	
+	a.setAttribute("href","#");
+	a.appendChild(document.createTextNode(name));
+	li.appendChild(a);
+	ul.appendChild(li);
+	$("#" + id).click(function() {
+		callback_function();
+	});
+
+}
+
 function test() {
-	console.log("fuck");
+	alert("swag");
 }
 
 function update_topic_nav() {
@@ -42,29 +59,15 @@ function update_topic_nav() {
 	}
 
 	// for last one create "create new"
-	topic_nav_new("Create a topic", test);
+	topic_nav_new("Create a topic", "topic_new", test);
 
 
 }
 
 
 
-function topic_nav_new(name, id, callback_function) {
 
-	// create button
-	var ul = document.getElementById("topic_nav");
-	var li = document.createElement("li");
-	var a  = document.createElement("a");
-	li.setAttribute("id", id); 	a.setAttribute("href","#");
-	a.appendChild(document.createTextNode(name));
-	li.appendChild(a);
-	ul.appendChild(li);
 
-	$(li).click(function() {
-		callback_function();
-	});
-
-}
 
 get_basic_data();
 check_for_topics();
