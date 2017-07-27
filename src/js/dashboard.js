@@ -7,6 +7,7 @@ var setup_points;
 var num_of_topics;
 var topic_current_info = [[],[]];
 
+var webview = document.getElementById("viewer");
 /*
  *	Function: 	 get_basic_data()
  * 	Description: gets the basic information about the project from the json file
@@ -77,16 +78,17 @@ function update_topic_nav() {
 	}
 
 	// for last one create "create new"
-	topic_nav_new("Create a topic", "topic_new", topic_new);
+	//topic_nav_new("Create a topic", "topic_new", topic_new);
 }
 
 /*
  *	Function: 	 set_iframe_url(url)
  * 	Description: sets the iframes url
  */
+
 function set_iframe_url(url) {
 
-	document.getElementById('frame').src = url;
+	webview.src = url;
 
 }
 
@@ -95,11 +97,12 @@ function set_iframe_url(url) {
  * 	Description: callback for topic_new, it sets the iframe to topic new
  */
 function topic_new() {
-	set_iframe_url("topic_new.html");
+	set_iframe_url("../html/topic_new.html");
 }
 
 get_basic_data();
 check_for_topics();
-update_topic_nav();
+
+document.getElementById("topic_new").addEventListener("click", topic_new);
 
 
