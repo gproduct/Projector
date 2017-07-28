@@ -1,13 +1,14 @@
 const remote 	= require('electron').remote;			// accessing remote library
 const main		= remote.require('./main.js');			// accessing stuff from main.js
-var $ 			= require('jquery');					// basic jquery
+var $ 				= require('jquery');					// basic jquery
 
 var basic_data  = {};									// title, description, github link
 var setup_points;
 var num_of_topics;
 var topic_current_info = [[],[]];
 
-var webview = document.getElementById("viewer");
+const webview = document.querySelector('webview');
+
 /*
  *	Function: 	 get_basic_data()
  * 	Description: gets the basic information about the project from the json file
@@ -22,7 +23,7 @@ function get_basic_data() {
 			current_output = "Project: " + current_output;			// just to make it prettier ;)
 		}
 		$("#" + String(setup_points[i])).text(current_output);		// sets the output of them
-	}	
+	}
 }
 
 /*
@@ -30,8 +31,6 @@ function get_basic_data() {
  * 	Description: check how many topics are there, if not create a null one
  */
 function check_for_topics() {
-
-
 	if(main.has_db('num_of_topics')) {
 		// read how many topics/ideas there are and generate navigation
 		num_of_topics = main.read_db('num_of_topics');
@@ -53,7 +52,7 @@ function topic_nav_new(name, id, callback_function) {
 		var ul = document.getElementById("topic_nav");
 		var li = document.createElement("li");
 		var a  = document.createElement("a");
-		li.setAttribute("id", id); 	
+		li.setAttribute("id", id);
 		a.setAttribute("href","#");
 		a.appendChild(document.createTextNode(name));
 		li.appendChild(a);
@@ -68,7 +67,7 @@ function topic_nav_new(name, id, callback_function) {
 
 /*
  *	Function: 	 update_topic_nav()
- * 	Description: goes through the num of topics and information and sets them up 
+ * 	Description: goes through the num of topics and information and sets them up
  */
 function update_topic_nav() {
 
@@ -86,23 +85,15 @@ function update_topic_nav() {
  * 	Description: sets the iframes url
  */
 
-function set_iframe_url(url) {
-
-	webview.src = url;
-
-}
+function set_iframe_url(url) { webview.src = url; }
 
 /*
  *	Function: 	 topic_new()
  * 	Description: callback for topic_new, it sets the iframe to topic new
  */
-function topic_new() {
-	set_iframe_url("../html/topic_new.html");
-}
+function topic_new() { set_iframe_url("../html/topic_new.html"); }
 
 get_basic_data();
 check_for_topics();
 
 document.getElementById("topic_new").addEventListener("click", topic_new);
-
-

@@ -19,6 +19,12 @@
 		    height: 30px;
 		}
 
+		webview {
+	    display:inline-flex;
+	    width:100%;
+	    height:430px;
+	  }
+
     </style>
 </head>
 <body style="background-color: #3E4651">
@@ -31,7 +37,6 @@
 	    <div class="col-sm-3 sidenav" style="border-right: 1px solid #363d47">
 	     	<h4 style="color: white;" id="project_title">Example name</h4>
 	     	<ul id="topic_nav" class="nav navbar-nav">
-
 		    </ul>
 		    <ul class="nav navbar-nav">
 		    	<li id="topic_new"><a href="#">Create new topic</a></li>
@@ -39,11 +44,7 @@
 	    </div>
 
 	    <div class="col-sm-9">
-	    	<div style="width:100%; height:430px">
-	      		<webview id="viewer" style="width:100%; height:430px;" nodeintegration allowpopups disableguestresize >
-	      	
-	      		</webview>
-	      	</div>
+	      	<webview src="" nodeintegration allowpopups webpreferences="allowRunningInsecureContent, javascript=yes"></webview>
 	    </div>
 	  </div>
 	</div>

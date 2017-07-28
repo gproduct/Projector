@@ -8,7 +8,7 @@ const JSONdb = require('simple-json-db');										// json database for making t
 global.json_path = {
 	path : null,
 	setup_points : ['project_title', 'project_description', 'project_github']
-}												
+}
 
 let win;																		// first main window
 var db;																			// make it global (locally)
@@ -19,7 +19,7 @@ var db;																			// make it global (locally)
  */
 app.once('ready', () => {
 	win = new BrowserWindow({
-		width: 			1000, 
+		width: 			1000,
 		height: 		500,
 		resizable: 		false,
 		maximizable: 	false,
