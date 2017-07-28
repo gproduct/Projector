@@ -37,12 +37,12 @@ function check_file() {
 	setup_points = remote.getGlobal('json_path').setup_points;
 
 	for(var i = 0; i < setup_points.length; i++) {
-		if(main.has_db(setup_points[i])) { 
+		if(main.has_db(setup_points[i])) {
 			console.log("The file already has: " + setup_points[i]);
 			document.getElementById(setup_points[i]).value = main.read_db(setup_points[i]);
 		} else {
 			console.log("The file doesnt contain:" + setup_points[i]);
-			// it doesnt 
+			// it doesnt
 		}
 	}
 }
@@ -52,7 +52,7 @@ $("#choose_json").click(function() {
 	set_json_path();
 	//load new interface with setup
 	$("#button_centered").slideUp(500);
-	$("#setup").slideDown(1500);
+	$("#setup").slideDown(1100);
 	check_file();
 });
 

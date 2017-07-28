@@ -7,8 +7,6 @@ var setup_points;
 var num_of_topics;
 var topic_current_info = [[],[]];
 
-const webview = document.querySelector('webview');
-
 /*
  *	Function: 	 get_basic_data()
  * 	Description: gets the basic information about the project from the json file
@@ -47,7 +45,6 @@ function check_for_topics() {
  * 	Description: check how many topics are there, if not create a null one
  */
 function topic_nav_new(name, id, callback_function) {
-
 	if(document.getElementById(name) == null) {
 		var ul = document.getElementById("topic_nav");
 		var li = document.createElement("li");
@@ -81,17 +78,15 @@ function update_topic_nav() {
 }
 
 /*
- *	Function: 	 set_iframe_url(url)
- * 	Description: sets the iframes url
- */
-
-function set_iframe_url(url) { webview.src = url; }
-
-/*
  *	Function: 	 topic_new()
  * 	Description: callback for topic_new, it sets the iframe to topic new
  */
-function topic_new() { set_iframe_url("../html/topic_new.html"); }
+function topic_new() {
+	dashboard_fill("topic_new.html");
+}
+
+function dashboard_fill(url) 	{ $("#dashboard").load(url);  }	// fill the dashboard with a file (html)
+function dashboard_empty() 		{ $("#dashboard").html('');   }	// empty the dashboard, fill it with nothing
 
 get_basic_data();
 check_for_topics();

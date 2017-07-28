@@ -30,7 +30,6 @@ app.once('ready', () => {
 
 	win.toggleDevTools();										// used for debuging, the dev tools show up
 	win.loadURL(`file://${__dirname}/src/html/index.html`);
-	//win.loadURL(`file://${__dirname}/src/html/dashboard.html`);
 });
 
 app.on('browser-window-created', (e, window) => {
